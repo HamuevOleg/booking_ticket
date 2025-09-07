@@ -1,0 +1,79 @@
+---
+// SferaComponent.astro
+---
+
+<div class="sfera">
+  <div class="sfera_umbra"></div>
+
+  <div class="zborul_1_positionare">
+
+    <div class="zbor-avion-1">
+      <div class="airplane airplane-1">✈️</div>
+    </div>
+  </div>
+
+  <div class="zborul_2_positionare">
+    <!-- <ZborAvion_2 client:load /> -->
+    
+    <div class="zbor-avion-2">
+      <div class="airplane airplane-2">✈️</div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .sfera {
+    width: 1552px;
+    height: 1552px;
+    position: absolute;
+    top: 142%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-shrink: 0;
+    border-radius: 1552px;
+    box-shadow: 0px 16px 48px 0px #FFF inset;
+    background: url(../../dist/pl.jpg) rgb(19, 19, 19) 50% -132px / 86% 63% no-repeat;
+    /* background: radial-gradient(58.51% 58.51% at 37.79% 19.59%, rgba(255, 255, 255, 0.00) 0%, rgba(93, 80, 180, 0.08) 65.8%), rgba(129, 110, 252, 0.03); */
+  }
+
+  .sfera_umbra {
+    box-shadow: 0px 4px 4px 0px #FFF inset;
+  }
+
+  .zborul_1_positionare,
+  .zborul_2_positionare {
+    position: absolute;
+    top: 17%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  .zborul_2_positionare {
+    top: 25%; /* Different position for second airplane */
+  }
+
+  /* Airplane animations */
+  .airplane {
+    font-size: 2rem;
+    animation: fly 10s infinite linear;
+  }
+
+  .airplane-2 {
+    animation-direction: reverse;
+  }
+
+  @keyframes fly {
+    0% {
+      transform: translateX(-50px) rotate(0deg);
+    }
+    50% {
+      transform: translateX(50px) rotate(180deg);
+    }
+    100% {
+      transform: translateX(-50px) rotate(360deg);
+    }
+  }
+</style>
+
+<!-- Component script removed - GSAP animation handled in main page -->
